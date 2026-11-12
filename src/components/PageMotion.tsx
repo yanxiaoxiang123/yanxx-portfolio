@@ -9,8 +9,10 @@ export default function PageMotion() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-      gsap.fromTo('[data-hero]', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.09, ease: 'power3.out' });
-      gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach(el => {
+      const hero = gsap.utils.toArray<HTMLElement>('[data-hero]');
+      if (hero.length) gsap.fromTo(hero, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.09, ease: 'power3.out' });
+      const reveals = gsap.utils.toArray<HTMLElement>('[data-reveal]');
+      reveals.forEach(el => {
         gsap.fromTo(el, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 94%', once: true } });
       });
     });
