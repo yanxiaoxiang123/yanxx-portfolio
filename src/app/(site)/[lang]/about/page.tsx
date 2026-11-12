@@ -3,6 +3,37 @@ import { copy, isLocale } from '../../../../lib/i18n';
 import { profile, github } from '../../../../data/profile';
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) { const { lang } = await params; return { title: isLocale(lang) ? copy[lang].about : 'About' }; }
 export default async function About({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params; if (!isLocale(lang)) notFound(); const p = profile[lang];
-  return <main id="main" className="about-main"><section className="section"><div className="page-heading"><h1>{p.aboutTitle}</h1><p>{p.intro}</p></div><div className="about-section"><div className="about-facts"><p>{p.name}<br />{lang === 'zh' ? '硕士，预计 2027 年毕业' : 'MSc, graduating in 2027'}</p><a className="text-link" href={github}>GitHub</a></div><div className="about-prose"><p className="statement">{p.aboutText}</p><p>{p.aboutDetail}</p></div></div></section><section className="section"><h2>{p.educationTitle}</h2><div className="about-timeline">{[p.internship, ...p.education].map(item => <article key={item.date}><p className="secondary">{item.date}</p><div><h3>{item.title}</h3><p>{item.place}</p><p>{item.text}</p></div></article>)}</div></section></main>;
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const p = profile[lang];
+  return <main id="main" tabIndex={-1}>
+    <header className="page-head">
+      <h1>{p.aboutTitle}</h1>
+      <p>{p.intro}</p>
+    </header>
+    <section className="section">
+      <div className="about-card">
+        <div className="about-text">
+          <h3>{lang === 'zh' ? '你好，我是晏晓翔' : 'Hi, I’m Yan Xiaoxiang'}</h3>
+          <p className="lede">{p.aboutText}</p>
+          <p>{p.aboutDetail}</p>
+          <p style={{ marginTop: 16 }}><a className="link" href={github}>{copy[lang].github} <span aria-hidden="true">↗</span></a></p>
+        </div>
+        <aside className="note" aria-label={lang === 'zh' ? '一句自述' : 'A short note'}>
+          {p.aboutNote}
+          <span className="who">— {p.name}</span>
+        </aside>
+      </div>
+    </section>
+    <section className="section" aria-labelledby="journey-heading">
+      <h2 className="section-title" id="journey-heading">{p.educationTitle}</h2>
+      <div className="journey-list">
+        {[p.internship, ...p.education].map((item, index) => <article className="journey-card" key={item.date}>
+          <span className="mark" aria-hidden="true">{index === 0 ? 'MD' : 'CZ'}</span>
+          <div className="journey-main"><h3>{item.place}</h3><p className="role">{item.title}</p><p className="role">{item.text}</p></div>
+          <div className="journey-meta"><span className="when">{item.date}</span></div>
+        </article>)}
+      </div>
+    </section>
+  </main>;
 }

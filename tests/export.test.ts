@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { normalizeExport } from '../scripts/normalize-export.mjs';
+import { isAllowedExportFile } from '../scripts/export-policy.mjs';
 
 test('exported nested segment payload is available at the client-requested dotted path', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'yanxx-export-'));
@@ -28,4 +29,13 @@ test('normalization preserves existing flat files and never aliases ordinary con
     assert.equal(fs.readFileSync(path.join(root, '__next._tree.txt'), 'utf8'), 'tree');
     assert.equal(fs.existsSync(path.join(root, 'notes.readme.txt')), false);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
+test('export policy admits only publishable file types and paths', () => {
+  for (const file of ['zh/index.html', 'en/projects/index.html', '_next/static/chunks/main-abc.js', 'images/work-backing.webp', 'favicon.svg', '404.html', 'zh/index.txt']) {
+    assert.equal(isAllowedExportFile(file), true, file);
+  }
+  for (const file of ['images/portrait.png', 'docs/照片/family.webp', 'docs/简历/resume.pdf', 'media/hero.mp4', '.env.local', '.DS_Store', 'notes/data.csv', 'zh/../secret.txt']) {
+    assert.equal(isAllowedExportFile(file), false, file);
+  }
 });

@@ -32,17 +32,19 @@ Open http://localhost:4173/zh/ . Build output is `out/`. The build normalizes ne
 
 - `src/data/profile.ts`: introductions, education, internship, research and contact email in both languages.
 - `src/content/projects/*.zh.md` and `*.en.md`: project metadata and Markdown case studies. Keep `translationKey`, `slug`, image and factual details aligned across languages.
-- `public/images/*.webp`: optimized artwork.
+- `public/images/*.webp`: optimized concept renders (transparent WebP, no text baked in).
 - Current routes: `/zh/`, `/en/`, localized `/about/`, `/projects/`, and `/projects/{backing,patent,logistics}/`.
 - Technical or personal writing can be added when real content is available. No empty blog or photo placeholders are published.
 
 ## Motion and artwork
 
-The current version uses native scrolling, a scroll-linked expanding image window and an interactive project index. `prefers-reduced-motion` shows the ordinary static composition. No wheel capture or mandatory intro playback.
+The page is one calm column: a fixed icon rail on desktop, a sticky record-style hero, white project cards, a journey list and a dark contact card. Motion is limited to scroll reveals, a word-by-word tagline reveal and hover lifts; `prefers-reduced-motion` renders the static composition. No wheel capture, no mandatory intro playback.
 
-Paper imagery was generated with Magpie. The paper plane comes from 翔 in the owner's name; concept covers are not product screenshots. `motion/hero/` records the Oil Motion concept, budget and status. **There is no generated paper-unfolding video in this release:** the configured video provider rejected generation for account-plan limits, and the owner chose to proceed with the front-end scroll version.
+The visual system was rebuilt from a live study of [xiaoyanghu.com](https://xiaoyanghu.com/) with REA/Chrome DevTools capture: measured column width (900px), card radius (24px), type scale (24px section titles, 22px card titles, 16px body), `#f8fafc` page background, hairline row rules and the floating rail. Content and wording remain this site's own.
 
-Erode by Indian Type Foundry, served through the official [Fontshare](https://www.fontshare.com/fonts/erode) CSS API rather than bundling font binaries in this public repository. Native Chinese serif fallbacks cover Chinese glyphs and the page remains readable if the font CDN is unavailable.
+Every device image is a generated concept render, not a product screenshot: the retro computer in the hero, the laptop/phone pair for Backing, the tablet for the patent review tool and the laptop for logistics. Chinese and English text is never baked into an image. The generated PNG masters are not committed; only optimized WebP files live in `public/images/`.
+
+Erode, the earlier display face, is gone. Inter (Latin) and Noto Sans SC (Chinese) load from the official Google Fonts CSS API, with Mynerve for the sticky note; system UI fonts cover the page if the CDN is unavailable.
 
 ## Checks
 
