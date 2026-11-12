@@ -1,0 +1,28 @@
+node_modules/
+.next/
+out/
+dist/
+.astro/
+.codegraph/
+.superpowers/
+.taste-skill/
+.env*
+!.env.example
+*.tsbuildinfo
+# Original personal documents and photographs remain local.
+docs/**/*.pdf
+docs/简历/
+docs/照片/
+*.pdf
+# Unused legacy assets from the earlier design exploration.
+src/assets/images/
+# Generated masters and local QA, never source control.
+generated-images/
+generated-videos/
+motion/**/pilot/
+motion/**/qa/
+motion/**/build/*.mp4
+motion/**/build/frames/
+motion/covers/source/
+motion/hero/source/*.png
+*.log

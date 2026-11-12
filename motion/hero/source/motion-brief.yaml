@@ -1,0 +1,28 @@
+concept_contract: source/concept-contract.yaml
+identity_bible: null
+parameter_space: linear
+media_access: sequential
+gesture_policy:
+  unit: continuous
+  inertia: coalesce
+  while_active: retarget
+  boundary: clamp
+  programmatic_navigation: observe
+storyboard:
+  - K0: Single folded dart on the studio surface
+  - K1: Same sheet opening naturally along its folds
+  - K2: One flat rectangular paper sheet with visible creases
+keyframes: [source/folded.png, source/flat.png]
+clip_chain: single Pilot K0 to K2
+rest_state: Show static folded poster before media; a readable still when reduced motion or resource failure is active
+loop: none
+anchor: center
+scene_continuity: Fixed elevated camera, same diffuse light and rose-grey surface
+frame_policy: native
+target_fps: 30
+quality_target:
+  desktop_css: 1280x720
+  dpr: 1
+  source: probe actual Pilot before compiling
+pixel_dimensions: 1280x720
+reduced_motion: Static poster and natural document flow

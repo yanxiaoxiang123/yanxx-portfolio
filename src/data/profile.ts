@@ -1,0 +1,58 @@
+import type { Locale } from '../lib/i18n';
+export const email = 's24150812056@smail.cczu.edu.cn';
+export const github = 'https://github.com/yanxiaoxiang123';
+export const profile = {
+  zh: {
+    name: '晏晓翔', title: '晏晓翔 — 个人主页',
+    intro: '常州大学计算机硕士在读，探索数据、算法与可用的系统。',
+    note: '预计 2027 年毕业。从模型实验到完整应用，我喜欢通过动手构建，把想法放进真实的问题里。',
+    filmTitle: ['把探索', '做成作品'],
+    filmText: 'Backing 始于一次验证想法的尝试。之后的项目，把这份探索延伸到了模型、数据和完整的应用。',
+    projectIntro: '一些独立推进的系统，也有面向实际问题的模型实践。',
+    aboutTitle: '关于我',
+    aboutText: '我的经历横跨数据处理、算法研究、系统开发与交付。比起给自己一个单一的标签，我更希望通过做过的事，让你认识我。',
+    aboutDetail: '在常州大学学习数据科学与计算机科学；在多模态算法实习中接触数据流水线与模型评测，也通过个人项目实践从需求到应用的完整过程。',
+    experienceTitle: '经历',
+    educationTitle: '学习与实践',
+    education: [
+      { date: '2024.09 — 2027.06', title: '计算机科学与技术硕士', place: '常州大学', text: '预计 2027 年毕业，关注时间序列与计算机视觉。' },
+      { date: '2020.09 — 2024.06', title: '数据科学与大数据技术本科', place: '常州大学', text: '从数据分析出发，逐步走向模型与系统实践。' },
+    ],
+    internship: { date: '2026.07 — 2026.10', title: '多模态算法与数据工程实习', place: '北京玛达科技', text: '参与视频元数据处理、视频抽取流水线与模型评测工具链。处理规模涉及 1,387 万条视频元数据，关注质量验证与可检查的交付。' },
+    researchTitle: '研究与实验',
+    researchIntro: '在应用之外，也保留对模型方法与复现过程的探索。',
+    research: [
+      { title: '钻井轨迹预测', text: '结合语言模型语义与 LSTM 的时序预测实验，公开部分实现与复现说明。', url: `${github}/Qwen-LSTM-Drilling-Trajectory` },
+      { title: '心电研究归档', text: '整理历史实验与训练评估入口；公开样本用于流程演示，不代表临床验证。', url: `${github}/ecg-pvc-research-archive` },
+    ],
+    contactTitle: '聊聊新的可能', contactText: '关于项目、研究或工作机会，欢迎给我写信。',
+    emailAction: '发送邮件', moreAbout: '更多关于我', backHome: '回到首页',
+    rights: '持续探索，慢慢更新。', projectCovers: '项目概念插画',
+  },
+  en: {
+    name: 'Yan Xiaoxiang', title: 'Yan Xiaoxiang — Personal portfolio',
+    intro: 'Computer science master’s student at Changzhou University, exploring data, models and useful systems.',
+    note: 'Graduating in 2027. I learn by building, taking ideas from model experiments into complete applications.',
+    filmTitle: ['Ideas,', 'unfolded'],
+    filmText: 'Backing began as a way to test an idea. The projects that followed took that curiosity into models, data and complete applications.',
+    projectIntro: 'Independently built systems and models shaped around practical problems.',
+    aboutTitle: 'A little about me',
+    aboutText: 'My work spans data processing, algorithm research, software development and delivery. The things I have made tell that story better than a single job title.',
+    aboutDetail: 'I study computer science at Changzhou University. A multimodal research internship brought me into data pipelines and model evaluation; personal projects let me follow an idea through to a working application.',
+    experienceTitle: 'Experience', educationTitle: 'Learning and practice',
+    education: [
+      { date: 'Sep 2024 — Jun 2027', title: 'MSc in Computer Science', place: 'Changzhou University', text: 'Expected graduation in 2027. Research interests include time series and computer vision.' },
+      { date: 'Sep 2020 — Jun 2024', title: 'BSc in Data Science', place: 'Changzhou University', text: 'A foundation in data analysis, followed by experiments with models and software systems.' },
+    ],
+    internship: { date: 'Jul 2026 — Oct 2026', title: 'Multimodal algorithms & data engineering', place: 'Beijing Mada Technology', text: 'Worked on video metadata, extraction pipelines and model evaluation tools. The data work involved 13.87 million video metadata records, with an emphasis on quality checks and inspectable delivery.' },
+    researchTitle: 'Research and experiments',
+    researchIntro: 'Alongside applications, an ongoing interest in methods and reproducibility.',
+    research: [
+      { title: 'Drilling trajectory prediction', text: 'Experiments combining language model semantics and LSTM forecasting, with partial implementation and reproduction notes.', url: `${github}/Qwen-LSTM-Drilling-Trajectory` },
+      { title: 'ECG research archive', text: 'Historical experiments and training/evaluation entry points. Public samples demonstrate the workflow, not clinical validation.', url: `${github}/ecg-pvc-research-archive` },
+    ],
+    contactTitle: 'Let’s find what’s next', contactText: 'For a project, a research conversation or a work opportunity, drop me a line.',
+    emailAction: 'Send an email', moreAbout: 'More about me', backHome: 'Back to home',
+    rights: 'Still exploring. Always a work in progress.', projectCovers: 'Project concept artwork',
+  },
+} satisfies Record<Locale, unknown>;

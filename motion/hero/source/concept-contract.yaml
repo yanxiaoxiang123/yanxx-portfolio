@@ -1,0 +1,23 @@
+subject_count: 1
+subjects:
+  - identity: One single ivory A4 paper sheet folded into a classic dart paper airplane, with a small dark forest-green inner fold; no text or marks.
+style: 安静、有审美、耐看
+motion_intent: The paper airplane slowly unfolds through its real creases into one flat rectangular sheet. No hands or new objects appear.
+background_owner: video
+scene: A pale rose-grey matte studio surface, soft cool upper-left window light, fixed elevated camera, realistic contact shadows. Paper remains centred and fully within frame.
+driver: scroll
+input_semantics: continuous
+time_control: scrub
+navigation: continuous
+clip_continuity: independent
+continuity:
+  - Exactly one paper sheet throughout
+  - Same paper identity and colour
+  - Same camera, lighting and surface
+  - Natural intermediate states and reversible folding
+aspect_ratio: '16:9'
+destination:
+  position: Home page between introduction and project index
+  desktop_max_css: 1280x720
+  target_dpr: 1
+  phone: Same 16:9 composition scaled to viewport; no aggressive crop
